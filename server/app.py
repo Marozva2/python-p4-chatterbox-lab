@@ -14,6 +14,10 @@ migrate = Migrate(app, db)
 
 db.init_app(app)
 
+@app.route('/')
+def messages_home():
+    return '<h1>This is the HomePage!</h1>'
+
 @app.route('/messages')
 def messages():
     messages = Message.query.order_by(Message.created_at.asc()).all()
